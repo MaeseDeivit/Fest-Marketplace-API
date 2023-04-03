@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface LocationJpaRepository: JpaRepository<LocationEntity, UUID> {
-}
+interface LocationJpaRepository : JpaRepository<LocationEntity, UUID>

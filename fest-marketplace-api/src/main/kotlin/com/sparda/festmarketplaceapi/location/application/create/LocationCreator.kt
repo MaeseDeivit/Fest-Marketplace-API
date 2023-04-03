@@ -14,7 +14,7 @@ import java.util.*
 class LocationCreator(private val repository: LocationRepositoryInterface) : BaseUseCase() {
     fun init(id: UUID, name: String): CreateLocationResponse {
         if (repository.find(id) !== null) throw LocationAlreadyExistException(id)
-        repository.save(Location(id, LocationName(name)))
-        return CreateLocationResponse(id.toString(), name)
+        val location: Location = repository.save(Location(id, LocationName(name)))
+        return CreateLocationResponse(location.id.toString(), location.name.value, location.fests)
     }
 }

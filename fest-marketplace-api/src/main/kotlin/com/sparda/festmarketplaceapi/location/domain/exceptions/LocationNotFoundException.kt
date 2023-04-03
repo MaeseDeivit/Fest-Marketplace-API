@@ -6,4 +6,4 @@ import java.util.*
 
 class LocationNotFoundException(locationId: UUID) : GlobalException(
     "location: ${locationId.toString()} not found", 701, HttpStatus.NOT_FOUND
-) {}
+)

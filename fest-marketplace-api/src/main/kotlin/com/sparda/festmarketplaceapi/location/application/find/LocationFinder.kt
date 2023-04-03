@@ -13,6 +13,6 @@ class LocationFinder(private val repository: LocationRepositoryInterface) : Base
     fun init(id: UUID): FindLocationResponse {
         val location = repository.find(id)
         if (location === null) throw LocationNotFoundException(id)
-        return FindLocationResponse(location.id.toString(), location.name.value)
+        return FindLocationResponse(location.id.toString(), location.name.value, location.fests)
     }
 }

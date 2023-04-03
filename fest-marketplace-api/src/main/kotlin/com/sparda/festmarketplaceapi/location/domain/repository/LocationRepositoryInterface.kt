@@ -4,6 +4,6 @@ import com.sparda.festmarketplaceapi.location.domain.model.Location
 import java.util.*
 
 interface LocationRepositoryInterface {
-    fun save(location: Location)
+    fun save(location: Location):Location
     fun find(id: UUID): Location?
 }

@@ -6,6 +6,7 @@ import com.sparda.festmarketplaceapi.location.infrastructure.models.requests.Cre
 import com.sparda.festmarketplaceapi.shared.infrastructure.models.responses.GlobalResponse
 import com.sparda.festmarketplaceapi.shared.infrastructure.models.responses.ResponseResultSuccess
 import com.sparda.festmarketplaceapi.shared.infrastructure.rest.BaseController
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.util.*
@@ -17,7 +18,7 @@ class LocationPostController(private val commandHandler: CreateLocationCommandHa
 
     @PostMapping("/{locationId}")
     fun createLocation(
-        @PathVariable("locationId") locationId: String, @RequestBody request: CreateLocationRequest
+        @PathVariable("locationId") locationId: String, @Valid @RequestBody request: CreateLocationRequest
     ): GlobalResponse<ResponseResultSuccess> {
         val command = CreateLocationCommand(
             UUID.fromString(locationId), request.locationName

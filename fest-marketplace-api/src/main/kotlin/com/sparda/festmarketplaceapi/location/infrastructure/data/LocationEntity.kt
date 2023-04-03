@@ -8,5 +8,6 @@ import java.util.*
 data class LocationEntity(
     @Id val id: UUID,
 
-    @Column(unique = true, nullable = false) val name: String
+    @Column(unique = true, nullable = false)
+    val name: String
 )
